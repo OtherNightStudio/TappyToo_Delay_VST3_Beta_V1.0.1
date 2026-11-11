@@ -1,5 +1,7 @@
 # Tappy Too Stereo 4Tap Delay
 
+![TappyToo Showing it's front panel on loading in a DAW](./Screenshot/TappyTooPanel.png)
+
 OtherNightStudio · Windows x64 VST3 · **1.0.1 Beta**
 
 A four-tap stereo tape delay with tempo-synced heads, a variable-speed reel, pressure braking, and adjustable stereo cross-feedback.
