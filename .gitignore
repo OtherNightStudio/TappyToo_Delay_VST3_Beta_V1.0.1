@@ -1,0 +1,8 @@
+.vs/
+**/x64/
+**/Win32/
+Tests/VisualStudio2022/obj/
+Tests/VisualStudio2022/out/
+*.vcxproj.user
+*.suo
+__pycache__/

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<JUCERPROJECT id="Tt4DLY" name="TappyToo" projectType="audioplug" version="1.0.1" bundleIdentifier="com.othernightstudio.tappytoo" companyName="OtherNightStudio" companyWebsite="" pluginName="Tappy Too Stereo 4Tap Delay" pluginManufacturer="OtherNightStudio" pluginManufacturerCode="OtNs" pluginCode="Tt4D" pluginFormats="buildVST3" pluginVST3Category="Fx,Delay" useAppConfig="0" jucerFormatVersion="1" cppLanguageStandard="17">
+  <MAINGROUP id="MainTT" name="TappyToo">
+    <GROUP id="SourceTT" name="Source">
+      <FILE id="TTsrc0" name="TapeEngine.h" compile="0" resource="0" file="Source/TapeEngine.h" />
+      <FILE id="TTsrc1" name="TapeEngine.cpp" compile="1" resource="0" file="Source/TapeEngine.cpp" />
+      <FILE id="TTsrc2" name="PluginProcessor.h" compile="0" resource="0" file="Source/PluginProcessor.h" />
+      <FILE id="TTsrc3" name="PluginProcessor.cpp" compile="1" resource="0" file="Source/PluginProcessor.cpp" />
+      <FILE id="TTsrc4" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h" />
+      <FILE id="TTsrc5" name="PluginEditor.cpp" compile="1" resource="0" file="Source/PluginEditor.cpp" />
+    </GROUP>
+    <GROUP id="ArtsTT" name="Panel">
+      <FILE id="ArtTT1" name="CrossFeed_Print.svg" compile="0" resource="1" file="Assets/CrossFeed_Print.svg" />
+      <FILE id="ArtTT3" name="ReelTape.svg" compile="0" resource="1" file="Assets/ReelTape.svg" />
+      <FILE id="ArtTT2" name="TappyToo_CrossFeed.svg" compile="0" resource="0" file="TappyToo_CrossFeed.svg" />
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" targetName="TappyToo" enablePluginBinaryCopyStep="0" linkTimeOptimisation="0" />
+        <CONFIGURATION name="Release" isDebug="0" targetName="TappyToo" enablePluginBinaryCopyStep="0" linkTimeOptimisation="0" />
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_audio_plugin_client" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_audio_processors" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_audio_processors_headless" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_core" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_data_structures" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_events" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_graphics" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_gui_basics" path="ThirdParty/JUCE/modules" />
+        <MODULEPATH id="juce_gui_extra" path="ThirdParty/JUCE/modules" />
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0" />
+  </MODULES>
+  <JUCEOPTIONS JUCE_WEB_BROWSER="0" JUCE_USE_CURL="0" JUCE_VST3_CAN_REPLACE_VST2="0" />
+</JUCERPROJECT>

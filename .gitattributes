@@ -1,0 +1,5 @@
+* -text
+*.sln -text
+*.vstpreset binary
+*.pdf binary
+*.ico binary
