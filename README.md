@@ -6,7 +6,7 @@ OtherNightStudio · Windows x64 VST3 · **1.0.1 Beta**
 
 A four-tap stereo tape delay with tempo-synced heads, a variable-speed reel, pressure braking, and adjustable stereo cross-feedback.
 
-[Download Tappy Too for Windows x64 (.zip)](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/download/v1.0.1-beta/TappyToo_Delay_VST3_Beta_V1.0.1-Windows-x64.zip). Extract the ZIP and copy the entire `TappyToo.vst3` folder to your VST3 directory. The [beta release](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/tag/v1.0.1-beta) includes the matching Visual Studio 2022 source.
+[Download Tappy Too for Windows x64 (.zip)](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/download/v1.0.1-beta/TappyToo_Delay_VST3_Beta_V1.0.1-Windows-x64.zip). The ZIP contains the complete `TappyToo.vst3` plug-in folder. The [beta release](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/tag/v1.0.1-beta) also provides the matching Visual Studio 2022 source.
 
 ## License
 
@@ -14,7 +14,7 @@ OtherNightStudio's original Tappy Too code and artwork are MIT-licensed. The dis
 
 ## Play
 
-Copy the complete `TappyToo.VST3` bundle to your DAW’s VST3 search folder, then rescan. The standard shared Windows folder is `C:\Program Files\Common Files\VST3`. Insert the effect on a stereo track. Load the supplied `Stereo Eighths.vstpreset` through the host’s VST3 preset browser for an audible starting point.
+Extract the ZIP and copy the `TappyToo.vst3` folder to `C:\Program Files\Common Files\VST3\OtherNightStudio\`. Create the `OtherNightStudio` folder if needed. Rescan plug-ins in your DAW and insert Tappy Too on a stereo track. The source archive includes `Presets/Stereo Eighths.vstpreset`, which you can load through the host’s VST3 preset browser.
 
 All four taps start active (olive). Click a numbered switch to mute that head (salmon). Drag or click its lane to place it. The center is a zero-time stereo record monitor. The left and right sides send the echo toward that speaker, reaching full placement at the first printed division. The first interval on either side blends continuously from stereo center.
 
