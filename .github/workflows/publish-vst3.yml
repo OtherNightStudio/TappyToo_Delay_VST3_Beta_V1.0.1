@@ -1,0 +1,65 @@
+name: Publish Windows VST3 package
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Published release tag containing the Windows x64 ZIP
+        required: true
+        default: v1.0.1-beta
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELEASE_TAG: ${{ inputs.release_tag }}
+    steps:
+      - name: Download and verify the released VST3 bundle
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" > release.json
+          asset=$(jq -er '[select(.draft == false) | .assets[] | select(.state == "uploaded" and (.name | endswith("-Windows-x64.zip")))] | select(length == 1) | .[0]' release.json)
+          digest=$(jq -er '.digest | select(test("^sha256:[0-9a-f]{64}$"))' <<< "$asset")
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --pattern "$(jq -r .name <<< "$asset")" --output tappytoo.zip
+          printf '%s  tappytoo.zip\n' "${digest#sha256:}" | sha256sum --check
+          unzip -tq tappytoo.zip
+          unzip -Z1 tappytoo.zip | grep -Fx 'TappyToo.vst3/Contents/x86_64-win/TappyToo.vst3'
+
+      - name: Publish the ZIP to GitHub Packages and verify the download
+        run: |
+          set -euo pipefail
+          registry="https://maven.pkg.github.com/${GITHUB_REPOSITORY,,}"
+          artifact=tappytoo-vst3-windows-x64
+          version=${RELEASE_TAG#v}
+          download="$registry/com/othernightstudio/$artifact/$version/$artifact-$version.zip"
+          auth=(--user "$GITHUB_ACTOR:$GITHUB_TOKEN")
+          status=$(curl --silent --show-error --location "${auth[@]}" --output published.zip --write-out '%{http_code}' "$download")
+          if [[ "$status" == 404 ]]; then
+            cat > settings.xml <<'XML'
+          <settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${env.GITHUB_ACTOR}</username>
+                <password>${env.GITHUB_TOKEN}</password>
+              </server>
+            </servers>
+          </settings>
+          XML
+            mvn --batch-mode --no-transfer-progress --settings settings.xml \
+              org.apache.maven.plugins:maven-deploy-plugin:3.1.4:deploy-file \
+              -DrepositoryId=github -Durl="$registry" -DgroupId=com.othernightstudio \
+              -DartifactId="$artifact" -Dversion="$version" -Dpackaging=zip -Dfile=tappytoo.zip \
+              "-DgeneratePom.description=Tappy Too Stereo 4Tap Delay for Windows x64. Source and license notices: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$RELEASE_TAG"
+            curl --fail --silent --show-error --location --retry 3 "${auth[@]}" --output published.zip "$download"
+          elif [[ "$status" != 200 ]]; then
+            echo "Package registry returned HTTP $status" >&2
+            exit 1
+          fi
+          cmp tappytoo.zip published.zip

@@ -6,7 +6,7 @@ OtherNightStudio · Windows x64 VST3 · **1.0.1 Beta**
 
 A four-tap stereo tape delay with tempo-synced heads, a variable-speed reel, pressure braking, and adjustable stereo cross-feedback.
 
-Download the Windows x64 ZIP and extract it before installing. The same release includes the complete Visual Studio 2022 source package. [Download the beta](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/tag/v1.0.1-beta).
+[Download Tappy Too for Windows x64 (.zip)](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/download/v1.0.1-beta/TappyToo_Delay_VST3_Beta_V1.0.1-Windows-x64.zip). Extract the ZIP and copy the entire `TappyToo.vst3` folder to your VST3 directory. The [beta release](https://github.com/OtherNightStudio/TappyToo_Delay_VST3_Beta_V1.0.1/releases/tag/v1.0.1-beta) includes the matching Visual Studio 2022 source.
 
 ## License
 
