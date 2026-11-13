@@ -14,7 +14,7 @@ OtherNightStudio's original Tappy Too code and artwork are MIT-licensed. The dis
 
 ## Play
 
-Extract the ZIP and copy the `TappyToo.vst3` folder to `C:\Program Files\Common Files\VST3\OtherNightStudio\`. Create the `OtherNightStudio` folder if needed. Rescan plug-ins in your DAW and insert Tappy Too on a stereo track. The source archive includes `Presets/Stereo Eighths.vstpreset`, which you can load through the host’s VST3 preset browser.
+Extract the ZIP and copy the vst3 to your plugin folder. Rescan plug-ins in your DAW and insert Tappy Too on a stereo track. The source archive includes `Presets/Stereo Eighths.vstpreset`, which you can load through the host’s VST3 preset browser.
 
 All four taps start active (olive). Click a numbered switch to mute that head (salmon). Drag or click its lane to place it. The center is a zero-time stereo record monitor. The left and right sides send the echo toward that speaker, reaching full placement at the first printed division. The first interval on either side blends continuously from stereo center.
 
